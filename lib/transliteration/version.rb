@@ -1,3 +1,3 @@
-module Transliteration
+module RuTranslit
   VERSION = "0.0.1"
 end
