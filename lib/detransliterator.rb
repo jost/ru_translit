@@ -11,7 +11,6 @@ class Detransliterator
   def self.cyrillic_options(input, include_softeners)
     data = Word.detransliterations_for(input, include_softeners)
     options = data[:options]
-    #input_structure = data[:input_structure]
-    list = Word.output_words options
+    Word.output_words options
   end
 end

@@ -43,10 +43,8 @@ private
         wp = WordPart.new(chunk, prev_wp, is_detranslit)#cy_result << new_cy_char
         prev_wp = wp
         offset = word.size-rest_size
-        #offset += 1 if chunk.size == 0 #move to the next letter if the current one has no cyrillic equivalent
         word = word[(offset)..-1] #cut the word to the rest of the string that has to be put into the wp-structure
         rest_size = [word.size-@@max_checked_string_length,0].max
-        #logger.debug "~~: "+cy_result
       elsif chunk.size > 0 #no rules found, so make chunk one letter shorter
         rest_size += 1
       else #no rules found and chunk is empty. meaning: no rules for the current word's first character. which means: just keep it.
@@ -55,10 +53,8 @@ private
         prev_wp = wp
         wp.just_thru = true
         word = word[(offset)..-1]
-        #rest_size = 0
         rest_size = [word.size-@@max_checked_string_length,0].max
       end
-      #logger.debug ">>>: rest_size = "+rest_size.to_s+", offset = "+offset.to_s+", word = "+word
     end
     prev_wp
   end
