@@ -17,3 +17,10 @@ whether certain options are to be included. Most other transliteration tools don
 ## Install
 
     gem install ru_translit
+
+## Usage
+
+    require 'ru_translit'
+    RuTranslit.to_cyrillic 'vodka' # => ["водка"]
+    RuTranslit.to_latin 'водка' # => ["vodka", "wodka"]
+    RuTranslit.to_cyrillic 'vodka', true # => ["водка", "водкьа", "водька", "водькьа"]
